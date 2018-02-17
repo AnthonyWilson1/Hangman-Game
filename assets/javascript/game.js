@@ -76,6 +76,8 @@ function loss() {
         losses++;
         var los = document.getElementById("loss-counter");
         los.innerHTML = losses;
+        document.getElementById("message").textContent = "Sorry, you have loss. The word was " + pickedName.join(" ");
+        reset()
     }
     else {}
 };
@@ -87,6 +89,8 @@ function addWin() {
         win++;
         var aWin = document.getElementById("win-counter");
         aWin.innerHTML = win;
+        document.getElementById("message").textContent = "You have won. The word was " + pickedName.join(" ");
+        reset()
     }
     else {}
 };

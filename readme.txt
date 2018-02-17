@@ -1,0 +1,1 @@
+Use the keyboard to start the game. Enter any letter key. You have nine guesses to get the name right.
