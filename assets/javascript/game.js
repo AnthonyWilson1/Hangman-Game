@@ -101,20 +101,8 @@ function reset() {
     var threeName = pickedName.toString();
     var fourName = fBoard.toString();
     if ((zwrong === 9) || (threeName === fourName)) {
-        return;
-        //name();
-        //var newName = name();
-        //console.log(newName);
-        //var rBoard = boardName(newName);
-        //console.log(rBoard);
-        //var wrongGuesses = document.getElementById("wrong-guesses");
-        //wrongGuesses.innerHTML = " ";
-        //var ucounter = document.getElementById("guesses-left");
-        //ucounter.innerHTML = "9";
-        //var noComma = rBoard.join(" ");
-        //var rightGuess = document.getElementById("word-blanks");
-        //rightGuess.innerHTML = noComma
-
+        name();
+        board();
     }
 };
 
@@ -131,8 +119,7 @@ document.addEventListener("keydown", function() {
         validateUserGuess2(userGuess);
         lower();   
         loss();
-        addWin();
-        reset();
+        addWin(); 
     }
     
 
