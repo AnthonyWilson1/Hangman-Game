@@ -86,32 +86,54 @@ if (sPickedName.includes(userInput)) {
 function UpdateLoss() {
     if (guessesLeft === 0) {
         addLoss();
-        reset();
-    } 
+        document.getElementById("message").textContent = "Sorry, you have loss. The word was " + pickedName.join(" ");
+          reset();
+    } else {
+        return;
+    }
 };
 
 //Update Win
 function UpdateWin() {
     if (pickedName.toString() === boardName.toString()) {
         addWin();
+        document.getElementById("message").textContent = "You have won. The word was " + pickedName.join(" ");
         reset();
+    } else {
+        return;
     }
+};
+
+// Set wrong-guesses to 0
+function setZeroOne() {
+    wrongGuesses = [];
+    var getWrongGuesses = document.getElementById("wrong-guesses");
+    getWrongGuesses = wrongGuesses;
+};
+
+
+// Set guess counter to 0
+function setCounterZero() {
+    guessesLeft = 9;
+    var UpdateGuessesLeftEnd = document.getElementById("guesses-left");
+    UpdateGuessesLeftEnd = guessesLeft;
+
 };
 
 //reset
 function reset() {
 getPickedName(wordBank);
 getBoardName();
-//var rgetWrongGuesses = document.getElementById("wrong-guesses");
-//wrongGuesses = []
-//rgetWrongGuesses.innerhtml = wrongGuesses
-//var rUpdateGuessesLeftBeg = document.getElementById("guesses-left");
-//guessesLeft = 9
-//rUpdateGuessesLeftBeg = guessesLeft
+console.log(pickedName);
+console.log(boardName);
 var rnoComma = boardName.join(" ");
 var rwordBlanks = document.getElementById("word-blanks");
 rwordBlanks.innerHTML = rnoComma; 
-startGame();
+//document.getElementById("guesses-left").textContent = 9;
+//document.getElementById("wrong-guesses").textContent = [];
+setZeroOne();
+setCounterZero();
+//document.getElementById("message").textContent = "";
 };
 
 //Start Game Function
@@ -135,14 +157,14 @@ lossCounterBeg = lossCounter;
 document.addEventListener("keydown", function() {
     var userInput = event.key
     userInput.toLowerCase();
-    //console.log(pickedName);
+    console.log(userInput);
     if (validateLetters(userInput)) {
-        //console.log(pickedName);
+        console.log(validateLetters(userInput));
         updateBoardName(userInput);
-        console.log(boardName);
+        //console.log(boardName);
         Update(userInput);
-        UpdateLoss();
         UpdateWin();
+        UpdateLoss();
 
     }
 
