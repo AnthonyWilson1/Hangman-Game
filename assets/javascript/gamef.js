@@ -108,7 +108,7 @@ function UpdateWin() {
 function setZeroOne() {
     wrongGuesses = [];
     var getWrongGuesses = document.getElementById("wrong-guesses");
-    getWrongGuesses = wrongGuesses;
+    getWrongGuesses.innerHTML = wrongGuesses;
 };
 
 
@@ -116,7 +116,7 @@ function setZeroOne() {
 function setCounterZero() {
     guessesLeft = 9;
     var UpdateGuessesLeftEnd = document.getElementById("guesses-left");
-    UpdateGuessesLeftEnd = guessesLeft;
+    UpdateGuessesLeftEnd.innerHTML = guessesLeft;
 
 };
 
@@ -129,11 +129,8 @@ console.log(boardName);
 var rnoComma = boardName.join(" ");
 var rwordBlanks = document.getElementById("word-blanks");
 rwordBlanks.innerHTML = rnoComma; 
-//document.getElementById("guesses-left").textContent = 9;
-//document.getElementById("wrong-guesses").textContent = [];
 setZeroOne();
 setCounterZero();
-//document.getElementById("message").textContent = "";
 };
 
 //Start Game Function
@@ -142,7 +139,6 @@ getPickedName(wordBank);
 console.log(pickedName);
 getBoardName();
 console.log(boardName);
-//console.log(pickedName);
 var UpdateGuessesLeftBeg = document.getElementById("guesses-left");
 UpdateGuessesLeftBeg = guessesLeft;
 var winCounterBeg = document.getElementById("win-counter");
@@ -161,7 +157,6 @@ document.addEventListener("keydown", function() {
     if (validateLetters(userInput)) {
         console.log(validateLetters(userInput));
         updateBoardName(userInput);
-        //console.log(boardName);
         Update(userInput);
         UpdateWin();
         UpdateLoss();
